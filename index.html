@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/sky.css">
+		<link rel="stylesheet" href="css/theme/xebia.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -23,64 +23,89 @@
 	</head>
 	<body>
 		<div class="reveal">
+			<div class="staticElements">
+				<div class="header"></div>
+			</div>
+
 			<div class="slides">
 
-<!-- Slides are separated by newline + three dashes + newline, vertical slides identical but two dashes -->
-<section data-markdown data-separator="^\n####\n$" data-separator-vertical="^\n---\n$">
+<!-- ==================== SLIDES ==================== -->
+
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
 <script type="text/template">
-## Demo 2
-Slide 1.1
+	<!-- .slide: data-background="#2C374C" -->
+
+# Rust
+
+**In action** <!-- .element: class="grisFonce2" -->
 
 ---
 
-## Demo 2
-Slide 1.2
+## Xebia Chart
 
-####
+--
 
-## Demo 2
-Slide 2
+## Colors
+
+* Beige <!-- .element: class="beige" -->
+
+* Jaune <!-- .element: class="jaune" -->
+
+* GrisFonce3 <!-- .element: class="grisFonce3" -->
+
+* GrisFonce2 <!-- .element: class="grisFonce2" -->
+
+--
+
+## Fonts
+
+* Lato (by default)
+
+* Oswald <!-- .element: class="oswald" -->
+
+--
+
+## Xebia mark
+
+Here is an example <!-- .element: class="mark" -->
+
+Example 2 <!-- .element: class="mark" -->
+
+--
+
+	<!-- .slide: data-background="#2C374C" -->
+
+## Background color <!-- .element: class="beige" -->
+
+---
+
+## Element attributes
+- Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
+- Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
+- Item 3 <!-- .element: class="fragment" data-fragment-index="3" -->
+
+---
+
+## Code format
+
+```php
+public function foo() {
+  $foo = array(
+    'bar' => 'bar'
+  )
+}
+```
+
+---
+
+## Image <!-- .element: class="jaune" -->
+
+![Sample image](../images/xebia-logotype-pos.png) <!-- .element: class="borderless" -->
+
+
 </script>
 </section>
 
-
-<!-- Slide attributes -->
-<section data-markdown>
-	<script type="text/template">
-		<!-- .slide: data-background="#000000" -->
-		## Slide attributes
-	</script>
-</section>
-
-<!-- Element attributes -->
-<section data-markdown>
-	<script type="text/template">
-		## Element attributes
-		- Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-		- Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-	</script>
-</section>
-
-<!-- Code -->
-<section data-markdown>
-	<script type="text/template">
-		```php
-		public function foo()
-		{
-		$foo = array(
-		'bar' => 'bar'
-		)
-		}
-		```
-	</script>
-</section>
-
-<!-- Images -->
-<section data-markdown>
-	<script type="text/template">
-		![Sample image](https://s3.amazonaws.com/static.slid.es/logo/v2/slides-symbol-512x512.png)
-	</script>
-</section>
 
 			</div>
 		</div>
@@ -89,9 +114,25 @@ Slide 2
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+			function showHeader(slideIndex) {
+			  const d = document.querySelector('.staticElements');
+              if (slideIndex === 0) {
+                d.className += " hide"; // hide header
+              } else {
+                d.className = "staticElements";
+              }
+            }
+
+            showHeader(0);
+
+
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+              showHeader(event.indexh);
+			});
+
+            // const d = document.querySelector('.staticElements');
+            // d.className += " hide";
+
 			Reveal.initialize({
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -100,6 +141,9 @@ Slide 2
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+            Reveal.configure({ slideNumber: true });
+
 		</script>
 	</body>
 </html>

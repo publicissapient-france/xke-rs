@@ -1,0 +1,160 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/lato_webfontkit/stylesheet.css);
+@import url(../../lib/font/oswald_webfontkit/stylesheet.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$bleuColor: #2C374C;
+$beigeColor: #C7B299;
+$jauneColor: #FBB03B;
+$grisFonce3Color: #666666;
+$grisFonce2Color: #999999;
+
+$mainColor: $bleuColor;
+$headingColor: $bleuColor;
+
+$mainFontSize: 42px;
+$mainFont: 'latoregular', Helvetica, sans-serif;
+$headingFont: 'latoregular', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+h1.oswald,
+h2.oswald,
+h3.oswald,
+h4.oswald,
+p.oswald {
+  font-family: 'oswaldregular', 'latoregular', Helvetica, sans-serif;
+}
+
+.reveal section img.borderless {
+  border: none;
+  box-shadow: none;
+}
+
+.reveal h1.beige,
+.reveal h2.beige,
+.reveal h3.beige,
+.reveal h4.beige,
+.beige {
+  color: $beigeColor;
+}
+
+.reveal h1.jaune,
+.reveal h2.jaune,
+.reveal h3.jaune,
+.reveal h4.jaune,
+.jaune {
+  color: $jauneColor;
+}
+
+
+.reveal h1.grisFonce3,
+.reveal h2.grisFonce3,
+.reveal h3.grisFonce3,
+.reveal h4.grisFonce3,
+.grisFonce3 {
+  color : $grisFonce3Color;
+}
+
+.reveal h1.grisFonce2,
+.reveal h2.grisFonce2,
+.reveal h3.grisFonce2,
+.reveal h4.grisFonce2,
+.grisFonce2 {
+  color : $grisFonce2Color;
+}
+
+h1.mark,
+h2.mark,
+h3.mark,
+h4.mark,
+p.mark {
+  &:before {
+    content: "";
+    width: 5px;
+    background-color: $beigeColor;
+    position: absolute;
+    top: 6px;
+    margin-left: -12px;
+    bottom: 6px;
+  }
+  position: relative;
+}
+
+div.staticElements {
+  background-color: $bleuColor;
+  height: 50px;
+  border-bottom: 3px solid $beigeColor;
+  position: relative;
+
+  .header {
+    line-height: 50px;
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+  }
+
+  :after {
+    background-image: url('../../../images/xebia-logotype-rev.png');
+    background-size: 100px 30px;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    content:"";
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.reveal .slide-number {
+  background-color: transparent;
+  color: $beigeColor;
+  font-family: inherit;
+  right: 36px;
+  bottom: 48px;
+  font-size: 18px;
+  width: 40px;
+  text-align: center;
+}
+
+.reveal .controls button {
+  color: $beigeColor;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
