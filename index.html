@@ -39,92 +39,16 @@
 
     <div class="slides">
 
-        <!-- ==================== SLIDES ==================== -->
+        <section data-markdown="example.md"
+                 data-separator="^\n---\n$"
+                 data-separator-vertical="^\n--\n$"
+                 data-separator-notes="^\nNote:$">
+        </section>
 
-        <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
-            <script type="text/template">
-                <!-- .slide: data-background="#2C374C" -->
-
-                # Rust
-
-                **In action** <!-- .element: class="grisFonce2" -->
-
-                ---
-
-                ## Xebia Chart
-
-                --
-
-                ## Colors
-
-                * Beige <!-- .element: class="beige" -->
-
-                * Jaune <!-- .element: class="jaune" -->
-
-                * GrisFonce3 <!-- .element: class="grisFonce3" -->
-
-                * GrisFonce2 <!-- .element: class="grisFonce2" -->
-
-                --
-
-                ## Fonts
-
-                * Lato (by default)
-
-                * Oswald <!-- .element: class="oswald" -->
-
-                --
-
-                ## Xebia mark
-
-                Here is an example <!-- .element: class="mark" -->
-
-                Example 2 <!-- .element: class="mark" -->
-
-                --
-
-                <!-- .slide: data-background="#2C374C" -->
-
-                ## Background color <!-- .element: class="beige" -->
-
-                ---
-
-                ## Element attributes
-                - Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-                - Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-                - Item 3 <!-- .element: class="fragment" data-fragment-index="3" -->
-
-                ---
-
-                ## Code format
-
-                ```rust
-                #[derive(Debug)]
-                pub enum State {
-                Start,
-                Transient,
-                Closed,
-                }
-
-                impl From<&'a str> for State {
-                fn from(s: &'a str) -> Self {
-                match s {
-                "start" => State::Start,
-                "closed" => State::Closed,
-                _ => unreachable!(),
-                }
-                }
-                }
-                ```
-
-                ---
-
-                ## Image <!-- .element: class="jaune" -->
-
-                ![Sample image](images/xebia-logotype-pos.png) <!-- .element: class="borderless" -->
-
-
-            </script>
+        <section data-markdown="presentation.md"
+                 data-separator="^\n---\n$"
+                 data-separator-vertical="^\n--\n$"
+                 data-separator-notes="^\nNote:$">
         </section>
 
         <section>
@@ -162,6 +86,8 @@
     });
 
     Reveal.initialize({
+        controlsTutorial : false,
+        slideNumber: true,
         dependencies: [
             {src: 'plugin/markdown/marked.js'},
             {src: 'plugin/markdown/markdown.js'},
@@ -174,7 +100,6 @@
         ]
     });
 
-    Reveal.configure({slideNumber: true});
     new Clipboard('.clipboard');
 </script>
 </body>
