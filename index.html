@@ -80,9 +80,25 @@
 
     showHeader(0);
 
-
     Reveal.addEventListener('slidechanged', function (event) {
         showHeader(event.indexh);
+
+        const code = document.querySelector('.present pre > code');
+        if (code) {
+          if (!code.id) {
+            code.id = "CODE_" + Math.floor(Math.random() * 2000000000);
+          }
+
+          const b = document.getElementById('B_' + code.id);
+          if (!b) {
+              var button = document.createElement("button");
+              button.className = 'clipboard clipboard-inline';
+              button.id = 'B_' + code.id;
+              button.setAttribute('data-clipboard-target', '#' + code.id);
+              button.innerHTML = "Copy to clipboard";
+              code.parentNode.insertBefore(button, code.nextSibling);
+          }
+        }
     });
 
     Reveal.initialize({

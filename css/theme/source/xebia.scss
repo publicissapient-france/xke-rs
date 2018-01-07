@@ -164,6 +164,12 @@ div.staticElements {
   color: $beigeColor;
 }
 
+.clipboard-inline {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
