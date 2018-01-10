@@ -1,6 +1,6 @@
 <!-- .slide: data-background="#2C374C" -->
 
-# Welcome in xke-rs <!-- .element: class="grisFonce2" -->
+## xke-rs <!-- .element: class="grisFonce2" -->
 For those who didn't had time to install rust.
 ```
 curl https://sh.rustup.rs -sSf | sh
@@ -21,8 +21,10 @@ Note:
 
 Organization:
 1. Language presentation
-2. Exercise
-3. Question
+2. Exercises
+3. Questions
+
+--
 
 Animators:
 * PODYACHIY Dimitry
@@ -98,7 +100,6 @@ $ tree .
 Build / run
 
 ```bash
-$ cargo build
 $ cargo run
 ```
 
@@ -115,12 +116,147 @@ $ cargo run
 3. Try to change ```src/main.rs``` 
 
 ```rust
+// from
 println!("Hello, world!");
 // to 
 println("Hello, world!");
 ```
 
 and build it   
+
+---
+
+## Common Concepts
+
+* Variables
+* Data Types
+* Functions
+* Control Flow
+
+--
+
+### Variables
+
+* **Immutable** by default <!-- .element: class="beige" -->
+* Add ```mut``` keyword for mutable variables
+
+```rust
+fn main() {
+    let mut x = 5;
+    println!("The value of x is: {}", x);
+    x = 6;
+    println!("The value of x is: {}", x);
+}
+``` 
+<!-- .element: class="fragment" data-fragment-index="2" --> 
+
+Note:
+    Immutable variables encourages you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers.
+
+--
+
+### Data types
+
+* **Statically typed** language <!-- .element: class="beige" -->
+* Powerful **type inference** <!-- .element: class="beige" -->
+
+Note:
+    Rust is a statically typed language, which means that it must know the types of all variables at compile time
+
+--
+
+Some examples 
+
+```rust
+let foo: i16 = 1001; // integer 16 bits
+let mut bar: f32; // float 32 bits
+let sum = 32 + 64; // inference
+let b: bool = true;
+let z = 'ℤ'; // char UTF8
+```
+
+Some more examples
+<!-- .element: class="fragment" data-fragment-index="2" --> 
+
+```rust
+// Tuples
+let tup = (500, 6.4, 1);
+let (x, y, z) = tup;
+let first = tup.0;
+
+// Arrays
+let arr = [1, 2, 3, 4, 5];
+let second = arr[1];
+
+// Type is mandatory here
+let guess: u32 = "42".parse().expect("Not a number!");
+```
+<!-- .element: class="fragment" data-fragment-index="2" -->
+ 
+--
+
+## Functions
+
+**Snake case** naming convention <!-- .element: class="beige" -->
+
+```rust
+fn main() {
+    another_function(5);
+}
+
+fn another_function(x: i32) {
+    println!("The value of x is: {}", x);
+}
+```
+
+--
+
+## Functions 
+Return value <!-- .element: class="beige" -->
+
+```rust
+fn main() {
+    println!("The value of x is: {}", plus_one(5));
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+
+// or
+fn plus_two(x: i32) -> i32 {
+    return x + 2;
+}
+```
+
+--
+
+### Control Flow
+Conditionals <!-- .element: class="beige" -->
+
+```rust
+// IF
+let number = 6;
+if number % 4 == 0 {
+    println!("number is divisible by 4");
+} else {
+    println!("number is not divisible by 4");
+}
+```
+
+```rust
+// LET IF
+let condition = true;
+let number = if condition { 5 } else { 6 };
+println!("The value of number is: {}", number);
+```
+
+--
+
+### Control Flow
+Loops <!-- .element: class="beige" -->
+
+
 
 ---
 
