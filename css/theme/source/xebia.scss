@@ -175,6 +175,13 @@ code {
   color: $jauneColor;
 }
 
+p>a.playground {
+  font-size: 50%;
+  padding-right: 45px;
+  text-align: right;
+  display: block;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------

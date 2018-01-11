@@ -114,6 +114,12 @@ div.staticElements {
 code {
   color: #FBB03B; }
 
+p > a.playground {
+  font-size: 50%;
+  padding-right: 45px;
+  text-align: right;
+  display: block; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
