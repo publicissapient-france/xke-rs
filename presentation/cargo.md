@@ -52,5 +52,6 @@ println!("Hello, world!");
 // to 
 println("Hello, world!");
 ```
+<!-- .element: class="play" --> 
 
 and build it   
