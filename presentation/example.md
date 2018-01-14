@@ -64,5 +64,5 @@ public function foo() {
 
 ## Image <!-- .element: class="jaune" -->
 
-![Sample image](images/xebia-logotype-pos.png) <!-- .element: class="borderless" -->
+![Sample image](../images/xebia-logotype-pos.png) <!-- .element: class="borderless" -->
 

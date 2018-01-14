@@ -182,6 +182,10 @@ p>a.playground {
   display: block;
 }
 
+div.small {
+  font-size: 50%;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------

@@ -120,6 +120,9 @@ p > a.playground {
   text-align: right;
   display: block; }
 
+div.small {
+  font-size: 50%; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
