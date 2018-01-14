@@ -150,7 +150,7 @@ for element in a.iter() {
 
 ## Exercises
 
-![triomphe](../images/triomphe.png) <!-- .element: class="borderless medium" -->
+![triomphe](../../images/triomphe.png) <!-- .element: class="borderless medium" -->
 
 --
 
