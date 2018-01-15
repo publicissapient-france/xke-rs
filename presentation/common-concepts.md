@@ -219,7 +219,7 @@ for element in a.iter() {
     fn is_even(num: i32) -> bool {
         num % 2 == 0;
     }
-
+<!-- .element: class="play" -->
 
 <a href="https://play.rust-lang.org/?gist=9de544d47e2d2ce0ea04df2c328fa2c8&version=stable" target="_blank">Playground</a> <!-- .element: class="playground" -->
 

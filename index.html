@@ -31,13 +31,13 @@
                  data-separator-notes="^\nNote:$">
         </section>
 
-        <section data-markdown="presentation/common-concepts.md"
+        <section data-markdown="presentation/cargo.md"
                  data-separator="^\n---\n$"
                  data-separator-vertical="^\n--\n$"
                  data-separator-notes="^\nNote:$">
         </section>
 
-        <section data-markdown="presentation/cargo.md"
+        <section data-markdown="presentation/common-concepts.md"
                  data-separator="^\n---\n$"
                  data-separator-vertical="^\n--\n$"
                  data-separator-notes="^\nNote:$">
@@ -84,13 +84,23 @@
       }
     }
 
+    function applyPlayground(play) {
+      var encoded = encodeURI(play.textContent);
+      console.log(encoded);
+
+      var anchor = document.createElement("a");
+      anchor.href = 'https://play.rust-lang.org/?code=' + encoded;
+      anchor.innerHTML = "Playground";
+      anchor.className = 'playground';
+      play.parentNode.insertBefore(anchor, play.nextSibling);
+    }
+
     Reveal.addEventListener('ready', function() {
         const codes = document.querySelectorAll('pre > code');
         codes.forEach(applyCopyClipboard);
         
-        // const plays = document.querySelectorAll('pre.play > code');
-        // var encoded = encodeURI(plays[0].textContent);
-        // console.log(encoded);
+        const plays = document.querySelectorAll('pre.play > code');
+        plays.forEach(applyPlayground);
     });
 
     Reveal.initialize({
