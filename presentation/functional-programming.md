@@ -39,7 +39,7 @@ fn game_to_awesomeness(game : Game) -> String {
 
 --
 
-## Closure
+### Closure
 
 * Use pipe to write a closure
 
@@ -52,7 +52,7 @@ println!("{}", result);
 
 --
 
-## Iterator
+### Iterator
 
 * Java 8 streams like
 
@@ -71,5 +71,6 @@ println!("{:?}", incremented_years);
 
 --
 
-## Exercice 1
+### Exercice 1
 
+--
