@@ -19,7 +19,7 @@
     </script>
 </head>
 <body>
-<div class="reveal">
+<div class="reveal" onkeydown="myFunction()">
     <div class="staticElements">
         <div class="header"></div>
     </div>
@@ -90,13 +90,35 @@
       }
     }
 
-    Reveal.addEventListener('ready', function() {
-        const codes = document.querySelectorAll('pre > code');
-        codes.forEach(applyCopyClipboard);
+    function applyAllCopyClipboard() {
+      const codes = document.querySelectorAll('pre > code');
+      codes.forEach(applyCopyClipboard);
+    }
 
-        // const plays = document.querySelectorAll('pre.play > code');
-        // var encoded = encodeURI(plays[0].textContent);
-        // console.log(encoded);
+    function removeCopyClipboard(code) {
+      code.parentNode.removeChild(code)
+    }
+
+    function removeAllCopyClipboard() {
+      const codes = document.querySelectorAll('.clipboard.clipboard-inline');
+      codes.forEach(removeCopyClipboard);
+    }
+
+    function applyPlayground(play) {
+      const code = play.querySelector('code');
+      var encoded = encodeURI(code.textContent);
+      var anchor = document.createElement('a');
+      anchor.href = 'https://play.rust-lang.org/?code=' + encoded;
+      anchor.innerHTML = 'Playground';
+      anchor.className = 'playground';
+      anchor.target = '_blank';
+      play.parentNode.insertBefore(anchor, play.nextSibling);
+    }
+
+    Reveal.addEventListener('ready', function() {
+      applyAllCopyClipboard();
+      const plays = document.querySelectorAll('pre.playground');
+      plays.forEach(applyPlayground);
     });
 
     Reveal.initialize({
@@ -114,6 +136,20 @@
             }
         ]
     });
+
+    document.addEventListener("keydown", keyDownTextField, false);
+
+    function keyDownTextField(e) {
+      var keyCode = e.keyCode;
+      if (keyCode === 65) {
+        const codes = document.querySelectorAll('.clipboard.clipboard-inline');
+        if (codes.length) {
+          removeAllCopyClipboard();
+        } else {
+          applyAllCopyClipboard();
+        }
+      }
+    }
 
     new Clipboard('.clipboard');
 </script>

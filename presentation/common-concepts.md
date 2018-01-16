@@ -157,69 +157,158 @@ for element in a.iter() {
 ### Exo 1
 <a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Variables</a>
 
-    // Make me compile!
+```rust
+// Make me compile!
 
-    fn main() {
-        let x;
-        if x == 10 {
-            println!("Ten!");
-        } else {
-            println!("Not ten!");
-        }
-        x = 5;
-        println!("x is now {}", x);
+fn main() {
+    let x;
+    if x == 10 {
+        println!("Ten!");
+    } else {
+        println!("Not ten!");
     }
     
-    
-<a href="https://play.rust-lang.org/?gist=088ab0244adcd11389016c52066cf63a&version=stable" target="_blank">Playground</a> <!-- .element: class="playground small" -->
+    x = 5;
+    println!("x is now {}", x);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hint: The declaration on line 4 is missing a keyword that is needed in Rust
+// to create a new variable binding.
+// Rust requires that all parts of a function's signature have type annotations,
+// there's something wrong with the place where we're calling the function.
+```
+<!-- .element: class="playground" -->
 
 
 --
 
 ### Exo 2
 <a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Functions</a>
+```rust
+// Make me compile! Scroll down for hints :)
 
-    // Make me compile!
-    
-    fn main() {
-        num = 3;
-        call_me();
-    }
-    
-    fn call_me(num) {
-        for i in 0..num {
-            println!("Ring! Call number {}", i + 1);
-        }
-    }
+fn main() {
+    num = 3;
+    call_me();
+}
 
-<a href="https://play.rust-lang.org/?gist=d2fa03b272a7aef268c6dd4c30013622&version=stable" target="_blank">Playground</a> <!-- .element: class="playground small" -->
+fn call_me(num) {
+    for i in 0..num {
+        println!("Ring! Call number {}", i + 1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hint: The declaration on line 4 is missing a keyword that is needed in Rust
+// to create a new variable binding.
+// Rust requires that all parts of a function's signature have type annotations,
+// there's something wrong with the place where we're calling the function.
+```
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 3
 <a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Functions</a>
 
-    // Make me compile!    
-    // This store is having a sale where if the price is an even number, you get
-    // 10 (money unit) off, but if it's an odd number, it's 3 (money unit) less.
+```rust
+// Make me compile! Scroll down for hints :)
 
-    fn main() {
-        let original_price = 51;
-        println!("Your sale price is {}", sale_price(original_price));
+// This store is having a sale where if the price is an even number, you get
+// 10 (money unit) off, but if it's an odd number, it's 3 (money unit) less.
+
+fn main() {
+    let original_price = 51;
+    println!("Your sale price is {}", sale_price(original_price));
+}
+
+fn sale_price(price: i32) -> {
+    if is_even(price) {
+        price - 10
+    } else {
+        price - 3
     }
-    
-    fn sale_price(price: i32) -> {
-        if is_even(price) {
-            price - 10
-        } else {
-            price - 3
-        }
-    }
-    
-    fn is_even(num: i32) -> bool {
-        num % 2 == 0;
-    }
+}
+
+fn is_even(num: i32) -> bool {
+    num % 2 == 0;
+}
 
 
-<a href="https://play.rust-lang.org/?gist=9de544d47e2d2ce0ea04df2c328fa2c8&version=stable" target="_blank">Playground</a> <!-- .element: class="playground" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1) The error message points to line 11 and says it expects a type after the
+// `->`. This is where the function's return type should be-- take a look at
+// the `is_even` function for an example!
+//
+// 2) a really common error that can be fixed by removing one character.
+// It happens because Rust distinguishes between expressions and statements: expressions return
+// a value and statements don't. We want to return a value from the `square` function, but it
+// isn't returning one right now...
+```
+<!-- .element: class="playground" -->
 
