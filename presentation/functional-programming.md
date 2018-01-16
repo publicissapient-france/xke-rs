@@ -66,3 +66,10 @@ println!("{:?}", incremented_years);
 ```
 
 --
+
+![triomphe](https://xebia-france.github.io/xke-rs/images/triomphe.png) <!-- .element: class="borderless medium" -->
+
+--
+
+## Exercice 1
+
