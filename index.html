@@ -31,19 +31,25 @@
                  data-separator-notes="^\nNote:$">
         </section>
 
-        <section data-markdown="presentation/common-concepts.md"
-                 data-separator="^\n---\n$"
-                 data-separator-vertical="^\n--\n$"
-                 data-separator-notes="^\nNote:$">
-        </section>
-
         <section data-markdown="presentation/cargo.md"
                  data-separator="^\n---\n$"
                  data-separator-vertical="^\n--\n$"
                  data-separator-notes="^\nNote:$">
         </section>
 
+        <section data-markdown="presentation/common-concepts.md"
+                 data-separator="^\n---\n$"
+                 data-separator-vertical="^\n--\n$"
+                 data-separator-notes="^\nNote:$">
+        </section>
+
         <section data-markdown="presentation/ownership.md"
+                 data-separator="^\n---\n$"
+                 data-separator-vertical="^\n--\n$"
+                 data-separator-notes="^\nNote:$">
+        </section>
+
+        <section data-markdown="presentation/functional-programming.md"
                  data-separator="^\n---\n$"
                  data-separator-vertical="^\n--\n$"
                  data-separator-notes="^\nNote:$">
@@ -87,7 +93,7 @@
     Reveal.addEventListener('ready', function() {
         const codes = document.querySelectorAll('pre > code');
         codes.forEach(applyCopyClipboard);
-        
+
         // const plays = document.querySelectorAll('pre.play > code');
         // var encoded = encodeURI(plays[0].textContent);
         // console.log(encoded);

@@ -50,7 +50,7 @@ Why rust instead of go ? (or the differences between Rust and Go).
 |GC|no|yes|
 |Types|strong|soft|
 |LC|hard|easy|
-|Goal|replace C ([a safe, modern and fearless concurrent C](https://www.rust-lang.org/en-US/faq.html#what-is-this-projects-goal))|[tool with fast compilation time and easy concurrency](https://talks.golang.org/2012/splash.article)|
+|Goal|[a safe, modern & fearless concurrent C](https://www.rust-lang.org/en-US/faq.html#what-is-this-projects-goal)|[tool with fast compilation time & easy concurrency](https://talks.golang.org/2012/splash.article)|
 
 --
 
@@ -58,16 +58,10 @@ Why rust instead of go ? (or the differences between Rust and Go).
 * Rust isn't better than Go.</br>
 * Go isn't better than rust.
 
-</br>
-
-<div>
+Note:
 But, why docker has choose Go if it wasn't a C replacement ?? 
 Because [various](https://fr.slideshare.net/jpetazzo/docker-and-go-why-did-we-decide-to-write-docker-in-go/18-Why_GoThe_Five_Reasons_Why) reasons</br> 
 but none of them is: Go is a drop in replacement to C/C++).
-</div>
-<!-- .element: class="fragment" data-fragment-index="2" --> 
-
---
 
 Why would we learn Rust ? Why it would be nice to know rust in Xebia ?
 * Learn Rust, increase your computer comprehension.
