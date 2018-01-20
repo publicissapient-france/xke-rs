@@ -71,6 +71,6 @@ println!("{:?}", incremented_years);
 
 --
 
-### Exercice 1
+### Exo 1
 
 --

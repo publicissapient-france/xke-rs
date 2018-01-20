@@ -155,10 +155,12 @@ for element in a.iter() {
 --
 
 ### Exo 1
-<a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Variables</a>
+
+<div><a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Variables</a></div>
+<!-- .element: class="small" -->
 
 ```rust
-// Make me compile!
+// Make me compile! Scroll down for hints :)
 
 fn main() {
     let x;
@@ -208,7 +210,10 @@ fn main() {
 --
 
 ### Exo 2
-<a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Functions</a>
+
+<div><a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Functions</a></div>
+<!-- .element: class="small" -->
+
 ```rust
 // Make me compile! Scroll down for hints :)
 
@@ -258,7 +263,9 @@ fn call_me(num) {
 --
 
 ### Exo 3
-<a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Functions</a>
+
+<div><a href="https://doc.rust-lang.org/book/second-edition/ch03-01-variables-and-mutability.html" target="_blank">Functions</a></div>
+<!-- .element: class="small" -->
 
 ```rust
 // Make me compile! Scroll down for hints :)

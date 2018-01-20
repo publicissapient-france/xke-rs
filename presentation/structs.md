@@ -51,4 +51,4 @@ let bobby = User {
 
 --
 
-### Exercice 1
+### Exo 1

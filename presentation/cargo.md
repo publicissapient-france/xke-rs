@@ -38,7 +38,7 @@ Cargo.toml(capital c) is the configuration file which contains all of the metada
 
 ## Exercises
 
-![triomphe](../../images/triomphe.png) <!-- .element: class="borderless medium" -->
+![triomphe](https://xebia-france.github.io/xke-rs/images/triomphe.png) <!-- .element: class="borderless medium" -->
 
 --
 
