@@ -5,7 +5,7 @@
 ### Optional
 
 * There is no ```null``` (or ```undefined```).
-* Use ````Some```` or presence or ```None``` for absence.
+* Use ````Some```` for presence and ```None``` for absence.
 
 ```rust
 fn main() {
