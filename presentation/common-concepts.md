@@ -10,23 +10,24 @@
 
 ### Variables
 
-* ```Immutable``` by default
-* Use ```mut``` keyword for mutable variables
+* **Immutable** by default <!-- .element: class="beige" -->
+* Use **mut** keyword for mutable variables <!-- .element: class="beige" -->
+* **Snake case** naming convention <!-- .element: class="beige" -->
+
 
 ```rust
 fn main() {
-    let mut x = 5;
-    println!("The value of x is: {}", x);
-    x = 6;
-    println!("The value of x is: {}", x);
+    let mut child_age = 5;
+    println!("The value of child_age is: {}", child_age);
+    child_age = 6;
+    println!("The value of child_age is: {}", child_age);
 }
 ``` 
 <!-- .element: class="fragment" data-fragment-index="2" --> 
 
 Note:
-    In Rust variable are immutable by default, so we call them Variable bindings. To make them mutable, mut keyword is used.
-    Rust is a statically typed language; It checks data type at compile time. But it doesn’t require you to actually type it when declare variable bindings.
-    Immutable variables encourages you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers.
+- In Rust variable are immutable by default, so we call them **Variable bindings**. To make them mutable, mut keyword is used.
+- Immutable variables encourages you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers.
 
 --
 
@@ -36,7 +37,8 @@ Note:
 * Powerful **type inference** <!-- .element: class="beige" -->
 
 Note:
-    Rust is a statically typed language, which means that it must know the types of all variables at compile time
+- Rust is a statically typed language => It checks data type at compile time.
+- But it doesn’t require you to actually type it when declare variable bindings.
 
 --
 
@@ -72,8 +74,6 @@ let guess: u32 = "42".parse().expect("Not a number!");
 
 ## Functions
 
-**Snake case** naming convention <!-- .element: class="beige" -->
-
 ```rust
 fn main() {
     another_function(5);
@@ -84,6 +84,11 @@ fn another_function(x: i32) {
 }
 ```
 
+Note:
+- the ```main``` function => entry point of many programs 
+- ```fn``` keyword => declare new functions
+- In function signatures, you **must** declare the type of each parameter => deliberate decision
+
 --
 
 ## Functions 
@@ -91,18 +96,23 @@ Return value <!-- .element: class="beige" -->
 
 ```rust
 fn main() {
-    println!("The value of x is: {}", plus_one(5));
+    println!("The eval of plus_one(5) is: {}", plus_one(5));
+    println!("The eval of plus(5, 2) is: {}", plus(5, 2));
 }
 
 fn plus_one(x: i32) -> i32 {
-    x + 1
+    return x + 1;
 }
 
 // or
-fn plus_two(x: i32) -> i32 {
-    return x + 2;
+fn plus(x: i32, y: i32) -> i32 {
+    x + y
 }
 ```
+
+Note:
+- we **must** declare the function return types after an arrow (->)
+- to return a value we can use ether ```return``` keyword or un expression with no semicolon (last value in the bloc).
 
 --
 
@@ -125,6 +135,12 @@ let condition = true;
 let number = if condition { 5 } else { 6 };
 println!("The value of number is: {}", number);
 ```
+<!-- .element: class="fragment" data-fragment-index="2" --> 
+
+
+Note:
+- You can of cause use multiples ```if else if``` conditions
+- No ternary operation, but ```let if``` instead 
 
 --
 
@@ -145,6 +161,19 @@ for element in a.iter() {
     println!("the value is: {}", element);
 }
 ```
+
+```rust
+let mut counter = 0;
+let result = loop {
+    counter += 1;
+    if counter == 10 { break counter * 2; }
+};
+println!("Result is: {}", result);
+```
+<!-- .element: class="fragment" data-fragment-index="2" --> 
+
+Note:
+- ```break``` with return value
 
 --
 
@@ -316,6 +345,73 @@ fn is_even(num: i32) -> bool {
 // It happens because Rust distinguishes between expressions and statements: expressions return
 // a value and statements don't. We want to return a value from the `square` function, but it
 // isn't returning one right now...
+```
+<!-- .element: class="playground" -->
+
+--
+
+### Exo 4
+
+<div><a href="https://doc.rust-lang.org/book/second-edition/ch03-05-control-flow.html" target="_blank">Control Flow</a></div>
+<!-- .element: class="small" -->
+
+```rust
+pub fn bigger(a: i32, b:i32) -> i32 {
+    // Complete this function to return the bigger number!
+    // Do not use:
+    // - return
+    // - another function call
+    // - additional variables
+    // Scroll down for hints.
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn ten_is_bigger_than_eight() {
+        assert_eq!(10, bigger(10, 8));
+    }
+
+    #[test]
+    fn fortytwo_is_bigger_than_thirtytwo() {
+        assert_eq!(42, bigger(32, 42));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// It's possible to do this in one line if you would like!
+// Some similar examples from other languages:
+// - In C(++) this would be: `a > b ? a : b`
+// - In Python this would be:  `a if a > b else b`
+// Remember in Rust that:
+// - the `if` condition does not need to be surrounded by parentheses
+// - `if`/`else` conditionals are expressions
+// - Each condition is followed by a `{}` block.
 ```
 <!-- .element: class="playground" -->
 

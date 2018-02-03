@@ -6,11 +6,12 @@
 
 
 Note:
-All programs have to manage the way they use a computer’s memory while running. 
-Some languages have garbage collection that constantly looks for no longer used memory as the program runs; 
+* All programs have to manage the way they use a computer’s memory while running. 
+* Some languages have garbage collection that constantly looks for no longer used memory as the program runs; 
 in other languages, the programmer must explicitly allocate and free the memory. 
-Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time. 
-No run-time costs are incurred for any of the ownership features.
+* Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time. 
+* No run-time costs are incurred for any of the ownership features.
+* Although the feature is straightforward to explain, it has deep implications for the rest of the language.
 
 --
 
@@ -68,21 +69,29 @@ fn main() {
 
 Note:
 When assigning a variable binding to another variable binding or when passing it to a function(Without referencing), if its data type is a
-Copy Type:
-    - Bound resources are made a copy and assign or pass it to the function.
-    - The ownership state of the original bindings are set to “copied” state.
-    - Mostly Primitive types
+**Copy Type:**
+- Bound resources are made a copy and assign or pass it to the function.
+- The ownership state of the original bindings are set to “copied” state.
+- Mostly Primitive types
+
 Copy the pointer, the length, and the capacity that are on the stack. We do not copy the data on the heap that the pointer refers to    
-Move type:
-    - Bound resources are moved to the new variable binding and we can not access the original variable binding anymore.
-    - The ownership state of the original bindings are set to “moved” state.
-    - Non-primitive type
+**Move type:**
+- Bound resources are moved to the new variable binding and we can not access the original variable binding anymore.
+- The ownership state of the original bindings are set to “moved” state.
+- Non-primitive type
 
 --
 
 Representation in memory <br/> after ```s1``` has been invalidated
 
 ![ownership](images/ownership-1.png) <!-- .element: class="borderless medium" -->
+
+Note:
+- Rust considers ```s1``` to no longer be valid
+- With only ```s2``` valid, when it goes out of scope, it alone will free the memory, and we’re done. 
+
+The concept of copying the pointer, length, and capacity without copying the data probably sounds like a **shallow copy**. 
+But because Rust also invalidates the first variable, instead of calling this a shallow copy, it’s known as a **move**.
 
 --
 
@@ -95,6 +104,9 @@ let s2 = s1.clone();
 println!("s1 = {}, s2 = {}", s1, s2);
 ```
 
+Note:
+Could be expensive as all the memory is copied
+
 --
 
 ### Ownership and Functions
@@ -103,22 +115,23 @@ Similar to assigning a value to a variable <!-- .element: class="beige" -->
 
 ```rust
 fn main() {
-  let s = String::from("hello");                               // s comes into scope.
-  takes_ownership(s); // s's value moves into the function...  and so is no longer valid here.
-  
   let x = 5;                                                   // x comes into scope.
   makes_copy(x);                                               // x would move into the function, but i32 is Copy, so it’s okay to still use x afterward.
-  
-  let s2 = takes_and_gives_back(s);
-}                                                              // Here, x goes out of scope, then s. But since s's value was moved, nothing special happens.
 
-fn takes_ownership(some_string: String) {                      // some_string comes into scope.
-    println!("{}", some_string);
-}                                                              // Here, some_string goes out of scope and `drop` is called. The backing memory is freed.
+  let s = String::from("hello");                               // s comes into scope.
+  takes_ownership(s); // s's value moves into the function...  and so is no longer valid here.
+
+  let s1 = String::from("hello");                              // s1 comes into scope.
+  let s2 = takes_and_gives_back(s1);                           // s1 is moved into takes_and_gives_back, which also moves its return value into s2
+}                                                              // Here, x goes out of scope, then s. But since s's value was moved, nothing special happens.
 
 fn makes_copy(some_integer: i32) {                             // some_integer comes into scope.
     println!("{}", some_integer);
 }                                                              // Here, some_integer goes out of scope. Nothing special happens.
+
+fn takes_ownership(some_string: String) {                      // some_string comes into scope.
+    println!("{}", some_string);
+}                                                              // Here, some_string goes out of scope and `drop` is called. The backing memory is freed.
 
 fn takes_and_gives_back(a_string: String) -> String {          // a_string comes into scope.
     a_string                                                   // a_string is returned and moves out to the calling function.
@@ -183,7 +196,7 @@ fn main() {
   // some code
   println!("{:?}", a); // trying to access 'a' as a 
                        // shared borrow, so giving error
-}                      // &mut borrow of 'a' ends here
+}
 
 fn main() {
   let mut a = vec![1, 2, 3];
@@ -217,6 +230,7 @@ fn calculate_length(s: &String) -> usize {
 fn main() {
     let mut s = String::from("hello");
     change(&mut s);
+    println!("{}", s); // ==> hello, world 
 }
 
 fn change(some_string: &mut String) {
