@@ -116,3 +116,44 @@ fn main() {
 --
 
 ### Exo 1
+
+``` rust
+// Exercise with struc
+
+```
+
+--
+
+### Exo 2
+
+``` rust
+// Exercise with struc
+
+```
+
+--
+
+### Exo 3
+
+``` rust
+// Exercise with implems
+
+```
+
+--
+
+### Exo 4
+
+``` rust
+// Exercise with trait
+
+```
+
+--
+
+### Exo 5
+
+``` rust
+// Exercise with derivation
+
+```

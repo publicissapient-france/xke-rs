@@ -80,3 +80,25 @@ struct Bookcase<'a> {
     book: &'a Book
 }
 ````
+
+--
+
+![triomphe](https://xebia-france.github.io/xke-rs/images/triomphe.png) <!-- .element: class="borderless medium" -->
+
+--
+
+### Exo 1
+
+``` rust
+// Exercise with lifetimes
+
+```
+
+--
+
+### Exo 2
+
+``` rust
+// Exercise with lifetimes
+
+```
