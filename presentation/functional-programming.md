@@ -225,5 +225,3 @@ impl Iterator for BitcoinPrice {
 
 // Hint, start with 4000 and increase by 80%
 ````
-
---
