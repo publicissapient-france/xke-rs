@@ -183,6 +183,8 @@ fn print_number(number: i32) {
 
 ### Exo 5
 
+<div><a href="https://doc.rust-lang.org/book/second-edition/ch13-01-closures.html" target="_blank">Closures</a></div>
+
 ````rust
 // Make me pass the assertion
 fn main() {

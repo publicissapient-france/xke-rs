@@ -6,12 +6,12 @@
 
 
 Note:
-* All programs have to manage the way they use a computer’s memory while running. 
-* Some languages have garbage collection that constantly looks for no longer used memory as the program runs; 
-in other languages, the programmer must explicitly allocate and free the memory. 
-* Rust uses a third approach: memory is managed through a system of ownership with a set of rules that the compiler checks at compile time. 
-* No run-time costs are incurred for any of the ownership features.
-* Although the feature is straightforward to explain, it has deep implications for the rest of the language.
+* Tous les programmes doivent gérer la façon dont ils utilisent la mémoire pendant l'exécution.
+* Certaines langages ont une **Gargabe Collector (GC)** qui cherche constamment la mémoire non utilisée pendant l'exécution du programme;
+dans d'autres langues, le programmeur doit **explicitement** allouer et libérer la mémoire.
+* Rust utilise une troisième approche: la mémoire est gérée par un système de **Ownership** avec un ensemble de règles que le compilateur vérifie au moment de la **compilation**.
+* **Aucun coût d'exécution** n'est engagé pour les fonctionnalités d'Ownership.
+* Bien que cette fonctionnalité soit simple à expliquer, elle a de profondes implications pour le reste de la langage.
 
 --
 
@@ -35,11 +35,6 @@ in other languages, the programmer must explicitly allocate and free the memory.
                        // and 's' is no longer valid
 ```
 
-Note:
-Variable bindings have ownership of what they’re bound to. A piece of data can only have one owner at a time. 
-When a binding goes out of scope, Rust will free the bound resources. This is how Rust achieves memory safety.
-
-
 --
 
 ### Data types
@@ -51,34 +46,35 @@ fn main() {
     let s1 = "hello"; // string literal
     let s2 = s1;
     println!("s1: {}, s2: {}", s1, s2); 
-    // ==> a: Hello, b: Hello
+    // ==> s1: Hello, s2: Hello
 }
 ```
+<!-- .element: class="fragment" data-fragment-index="2" -->
 
-Move type (heap) <!-- .element: class="fragment" data-fragment-index="2" -->
+Move type (heap)
 
 ```rust
 fn main() {
     let s1 = String::from("hello");
     let s2 = s1;
     println!("s1: {}, s2: {}", s1, s2); 
-    // ==> Error: use of moved value: `s1`
+    // ==> Compiler error: use of moved value: `s1`
 }
 ```
-<!-- .element: class="fragment" data-fragment-index="2" --> 
+<!-- .element: class="fragment" data-fragment-index="3" --> 
 
 Note:
-When assigning a variable binding to another variable binding or when passing it to a function(Without referencing), if its data type is a
-**Copy Type:**
-- Bound resources are made a copy and assign or pass it to the function.
-- The ownership state of the original bindings are set to “copied” state.
-- Mostly Primitive types
+Lors de l'affectation d'une variable à une autre ou lors de son passage à une fonction (sans référence), si son type de données est un
 
-Copy the pointer, the length, and the capacity that are on the stack. We do not copy the data on the heap that the pointer refers to    
+**Copy Type:**
+- globalement les **types primitives**
+- les donnée sont **copiés**
+- le state de l'ownership est setté comme "copied".
+
 **Move type:**
-- Bound resources are moved to the new variable binding and we can not access the original variable binding anymore.
-- The ownership state of the original bindings are set to “moved” state.
-- Non-primitive type
+- les types non primitives
+- seulement le pointeur et la capacité sont copiés. Mais les données actuelles (référencés par le pointeur) ne sont pas copiés
+- le state de l'ownership est setté comme "moved"
 
 --
 
@@ -87,11 +83,11 @@ Representation in memory <br/> after ```s1``` has been invalidated
 ![ownership](images/ownership-1.png) <!-- .element: class="borderless medium" -->
 
 Note:
-- Rust considers ```s1``` to no longer be valid
-- With only ```s2``` valid, when it goes out of scope, it alone will free the memory, and we’re done. 
+- Rust considère que ``` s1``` n'est plus valide !
+- Avec seulement ```s2``` valide, quand il sort de la scope, le mémoire est libérée.
 
-The concept of copying the pointer, length, and capacity without copying the data probably sounds like a **shallow copy**. 
-But because Rust also invalidates the first variable, instead of calling this a shallow copy, it’s known as a **move**.
+Le concept de copier le pointeur, la longueur et la capacité sans copier les données ressemble probablement à une **Shallow copy**.
+Mais parce que Rust invalide également la première variable, au lieu de l'appeler **Shallow copy**, on l'appele le **move**.
 
 --
 
@@ -105,7 +101,7 @@ println!("s1 = {}, s2 = {}", s1, s2);
 ```
 
 Note:
-Could be expensive as all the memory is copied
+Peut être cher car toute la mémoire est copiée
 
 --
 
@@ -149,8 +145,8 @@ To _receive_ something </br>with the promise of _returning_ it
 
 
 Note:
-But in real life applications, most of the times we have to pass variable bindings to other functions 
-or assign them to another variable bindings. In this case we referencing the original binding; borrow the data of it.
+Mais dans les applications réelles, la plupart du temps nous devons passer les variables à d'autres fonctions
+ou les affecter à une autre variable. Dans ce cas, nous référençons le binding d'origin; permettant d'emprunter les données de celui-ci.
 
 --
 
@@ -161,6 +157,7 @@ but data should **not be altered**.</div> <!-- .element: class="fragment small" 
 ```
 let s1 = String::from("hello");
 let s2 = &s1;
+let s3 = &s1;
 ``` 
 <!-- .element: class="fragment small" data-fragment-index="2" -->
 
@@ -176,8 +173,8 @@ let s2 = &mut s1;
 
 Note:
 Types of borrowing:
-- Shared Borrowing (&T) : A piece of data can be borrowed by a single or multiple users, but data should not be altered.
-- Mutable Borrowing (&mut T) : A piece of data can be borrowed and altered by a single user, but the data should not be accessible for any other users at that time.
+- Shared Borrowing (&T) : un élément peut être emprunté par un ou plusieurs utilisateurs, mais les données ne doivent pas être modifiées.
+- Mutable Borrowing (&mut T) : Un élément peut être emprunté et modifié par un seul utilisateur, mais les données ne doivent pas être accessibles à d'autres utilisateurs à ce moment-là.
 
 --
 

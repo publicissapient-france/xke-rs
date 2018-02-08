@@ -26,8 +26,8 @@ fn main() {
 <!-- .element: class="fragment" data-fragment-index="2" --> 
 
 Note:
-- In Rust variable are immutable by default, so we call them **Variable bindings**. To make them mutable, mut keyword is used.
-- Immutable variables encourages you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers.
+- Les variables RUST sont **immuable** pas défaut. On les appeles les **Variable bindings**. Pour les faire mutable -> mut.
+- L'immutabilité des variables vous encourage d'écrire votre code code de manière à tirer parti de la sécurité et de la simplicité de la concurrence offertes par Rust.
 
 --
 
@@ -37,8 +37,8 @@ Note:
 * Powerful **type inference** <!-- .element: class="beige" -->
 
 Note:
-- Rust is a statically typed language => It checks data type at compile time.
-- But it doesn’t require you to actually type it when declare variable bindings.
+- Rust est un langage typé statiquement => type de données est verifié au moment de la compilation.
+- Inférence de types : Mais cela ne vous oblige pas à les typer lorsque vous déclarez des les Bindings
 
 --
 
@@ -85,9 +85,9 @@ fn another_function(x: i32) {
 ```
 
 Note:
-- the ```main``` function => entry point of many programs 
-- ```fn``` keyword => declare new functions
-- In function signatures, you **must** declare the type of each parameter => deliberate decision
+- la fonction ```main``` => est le point d'entrée de nombreux programmes
+- ```fn``` keyword => déclarer de nouvelles fonctions
+- Dans les signatures de fonction, vous **devez** déclarer le type de chaque paramètre => décision délibérée
 
 --
 
@@ -111,8 +111,8 @@ fn plus(x: i32, y: i32) -> i32 {
 ```
 
 Note:
-- we **must** declare the function return types after an arrow (->)
-- to return a value we can use ether ```return``` keyword or un expression with no semicolon (last value in the bloc).
+- nous **devons** déclarer les types de retour de la fonction, après une flèche (->)
+- pour renvoyer une valeur, nous pouvons utiliser le mot-clé ether ```return``` ou l'expression sans point-virgule (dernière dans le bloc).
 
 --
 
@@ -139,8 +139,8 @@ println!("The value of number is: {}", number);
 
 
 Note:
-- You can of cause use multiples ```if else if``` conditions
-- No ternary operation, but ```let if``` instead 
+- Vous pouvez bien sur utiliser plusieurs conditions ```if else if```
+- Rust n'a de pas d'opération ternaire, mais ```let if``` à la place
 
 --
 
@@ -173,7 +173,7 @@ println!("Result is: {}", result);
 <!-- .element: class="fragment" data-fragment-index="2" --> 
 
 Note:
-- ```break``` with return value
+- ```break``` avec la valeur de retour
 
 --
 

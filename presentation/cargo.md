@@ -10,8 +10,15 @@ The Rust package manager <!-- .element: class="beige" -->
 * Build code
 * Manage dependencies
 
---
+Note:
+Cargo gère trois choses: 
+* **construction** de notre code, 
+* téléchargement (**gestion**) des dépendances dont notre code a besoin
+* **construction des ces dépendances**.
 
+Il est egalement capable de initialiser une application ou une dépendance. 
+
+--
 
 Bootstrap
 
@@ -32,7 +39,7 @@ $ cargo run
 ```
 
 Note:
-Cargo.toml(capital c) is the configuration file which contains all of the metadata that Cargo needs to compile your project.
+Cargo.toml(capital c) est le fichier de configuration qui contient tous les **meta-données** que Cargo a besoin pour compiler votre projet. 
 
 --
 
