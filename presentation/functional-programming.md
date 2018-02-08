@@ -86,46 +86,56 @@ fn checked_division(dividend: i32, divisor: i32) -> Option<i32> {
 }
 
 ````
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 2
+
+<div><a href="https://doc.rust-lang.org/book/second-edition/ch06-03-if-let.html" target="_blank">If let</a></div>
 
 ````rust
 // Make me compile by using Some, None.
 fn main() {
     let maybe_seven = Some(7);
     
-    if let 7 = maybe_seven { // Change here
-        println!("maybe_seven equal to: {}")
+    if let 7 = maybe_seven {
+        println!("Success")
     }
 }
 
 ````
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 3
 
+<div><a href="https://doc.rust-lang.org/book/first-edition/patterns.html#guards" target="_blank">Pattern matching</a></div>
+
 ````rust
-// Make me compile for only print "Success" when x + y is equal to 0.
+// Print "Success" when x plus y is equal to 0.
 fn main() {
     let pair = (2, -42);
 
     match pair {
-          => println!("Success"),
+        ??? => println!("Success"),
         (x, y) => println!("x: {}, y: {}", x, y),
     }
 }
-
 ````
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 4
 
+<div><a href="https://doc.rust-lang.org/book/first-edition/patterns.html" target="_blank">Pattern matching</a></div>
+
 ````rust
-// Make me compile for only print "Success".
+// Make me print only "Success"es
+// ... Warnings are not accepted :)
+// Scroll down for hints.
 fn main() {
     let ar = vec![2, 5, 42, 56, 22, 3];
     ar.iter().for_each(|x| print_number(*x));
@@ -134,33 +144,59 @@ fn main() {
 fn print_number(number: i32) {
     match number {
         1 => println!("NOP"),
-          => println!("Success"), // Change only here
+        ??? => println!("Success"), // Change only this line
         4 => println!("NOP"),
         _ => println!("NOP"),
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Try to use Multiple patterns
+// You can also find Range matching useful
+
 ````
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 5
 
 ````rust
-// Make me pass for closure.
+// Make me pass the assertion
 fn main() {
+    let mut num_five = 5;
+    
+    {
+        let mut add_some_number = |x: i32| num_five += x; // Change here
+        add_some_number(5);
+    }
 
-let mut num_five = 5;
-
-{
-    let mut add_some_number = |x: i32| num_five += x; // Change here
-
-    add_some_number(5);
-}
-
-assert_eq!(5, num_five);
+    assert_eq!(5, num_five);
 }
 ````
+<!-- .element: class="playground" -->
 
 --
 
@@ -178,6 +214,7 @@ struct Bar<F: FnOnce(i32) -> i32> {
     my_closure: F
 }
 ````
+<!-- .element: class="playground" -->
 
 --
 
@@ -191,6 +228,7 @@ fn main() {
 }
 
 ````
+<!-- .element: class="playground" -->
 
 --
 
@@ -225,3 +263,4 @@ impl Iterator for BitcoinPrice {
 
 // Hint, start with 4000 and increase by 80%
 ````
+<!-- .element: class="playground" -->

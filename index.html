@@ -129,7 +129,7 @@
 
     function applyPlayground(play) {
       const code = play.querySelector('code');
-      var encoded = encodeURI(code.textContent);
+      var encoded = encodeURIComponent(code.textContent);
       var anchor = document.createElement('a');
       anchor.href = 'https://play.rust-lang.org/?code=' + encoded;
       anchor.innerHTML = 'Playground';

@@ -396,14 +396,6 @@ mod tests {
 
 
 
-
-
-
-
-
-
-
-
 // It's possible to do this in one line if you would like!
 // Some similar examples from other languages:
 // - In C(++) this would be: `a > b ? a : b`
