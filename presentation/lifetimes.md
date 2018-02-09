@@ -89,16 +89,22 @@ struct Bookcase<'a> {
 
 ### Exo 1
 
-``` rust
-// Exercise with lifetimes
+```rust
+// implement method new for the Bookcase, you will need to specify lifetimes parameters.
+struct Book {
+    code: i64
+}
 
-```
+struct Bookcase<'a> {
+    book: &'a Book
+}
 
---
+???
 
-### Exo 2
-
-``` rust
-// Exercise with lifetimes
+fn main() {
+    let la_horde_du_contrevent = Book {code: 123456};
+    let case = Bookcase::new(&la_horde_du_contrevent);
+    assert_eq!(123456, case.book.code)
+}
 
 ```

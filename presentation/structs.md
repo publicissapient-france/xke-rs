@@ -118,7 +118,7 @@ fn main() {
 ### Exo 1
 
 ```rust
-// Write a structure Point with to i32 inside x and y
+// Write a structure Point with to i32 inside x and y.
 struct ???
 fn main () {
     let point = ???
@@ -213,7 +213,7 @@ fn main () {
 ### Exo 5
 
 ```rust
-// Implement the trait Printable for Point, consider using the macro format! to create the String
+// Implement the trait Printable for Point, consider using the macro format! to create the String.
 trait Printable {
     fn print(&self) -> String;
 }
