@@ -119,7 +119,7 @@ fn main() {
     let pair = (2, -42);
 
     match pair {
-        ??? => println!("Success"),
+         => println!("Success"), // Change here
         (x, y) => println!("x: {}, y: {}", x, y),
     }
 }
@@ -144,37 +144,11 @@ fn main() {
 fn print_number(number: i32) {
     match number {
         1 => println!("NOP"),
-        ??? => println!("Success"), // Change only this line
+         => println!("Success"), // Change this line
         4 => println!("NOP"),
         _ => println!("NOP"),
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Try to use Multiple patterns
-// You can also find Range matching useful
 
 ````
 <!-- .element: class="playground" -->
@@ -191,7 +165,7 @@ fn main() {
     let mut num_five = 5;
     
     {
-        let mut add_some_number = |x: i32| num_five += x; // Change here
+        let mut add_some_number = |x: i32| num_five += x; // Force closure to take ownership of num_five
         add_some_number(5);
     }
 
@@ -207,7 +181,7 @@ fn main() {
 ````rust
 // Make me pass for closure.
 fn main() {
-    let bar = // Change here
+    let bar = // Create a Bar here.
     
     assert_eq!(-10, (bar.my_closure)(5));
 }
@@ -239,7 +213,7 @@ fn main() {
 ````rust
 // Make me run and pass. Consider Read next chapter before doing this.
 fn main() {
-    let mut bitcoin_price = BitcoinPrice {current_price: };
+    let mut bitcoin_price = BitcoinPrice {current_price: }; // Change something here
     
     assert_eq!(Some(41990.4), bitcoin_price.nth(3));
 
@@ -253,7 +227,7 @@ impl Iterator for BitcoinPrice {
     type Item = f64;
     
     fn next(&mut self) -> Option<f64> {
-
+        // return something here
     }
 }
 
