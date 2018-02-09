@@ -117,8 +117,14 @@ fn main() {
 
 ### Exo 1
 
-``` rust
-// Exercise with struc
+```rust
+// Write a structure Point with to i32 inside x and y
+struct ???
+fn main () {
+    let point = ???
+    assert_eq!(5, point.x);
+    assert_eq!(10, point.y);
+}
 
 ```
 
@@ -126,8 +132,20 @@ fn main() {
 
 ### Exo 2
 
-``` rust
-// Exercise with struc
+```rust
+// Use the same struct as previously and implement a 'new' method.
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl ???
+
+fn main () {
+    let point = Point::new(5, 10);
+    assert_eq!(5, point.x);
+    assert_eq!(10, point.y);
+}
 
 ```
 
@@ -135,8 +153,30 @@ fn main() {
 
 ### Exo 3
 
-``` rust
-// Exercise with implems
+```rust
+// Implement a translate_by_two method that multiply by two x and y.
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl Point {
+    fn new (x: i32, y: i32) -> Point {
+        Point {x, y}
+    }
+
+    ???
+}
+
+fn main () {
+    let mut point = Point::new(5, 10);
+    assert_eq!(5, point.x);
+    assert_eq!(10, point.y);
+
+    point.translate_by_two();
+    assert_eq!(10, point.x);
+    assert_eq!(20, point.y);
+}
 
 ```
 
@@ -144,8 +184,27 @@ fn main() {
 
 ### Exo 4
 
-``` rust
-// Exercise with trait
+```rust
+// Implement a generic Point struct that can hold either i32 or f64.
+struct ???
+fn main () {
+    let point = Point { x: 5, y: 10};
+    assert_eq!(5, point.x);
+    assert_eq!(10, point.y);    
+    
+    let point_float = Point { x: 5.10, y: 10.10};
+    assert_eq!(5.10, point_float.x);
+    assert_eq!(10.10, point_float.y);
+}
+
+
+
+
+
+
+
+
+// Generic notation of struct is MyStruct<T>
 
 ```
 
@@ -153,7 +212,32 @@ fn main() {
 
 ### Exo 5
 
-``` rust
-// Exercise with derivation
+```rust
+// Implement the trait Printable for Point, consider using the macro format! to create the String
+trait Printable {
+    fn print(&self) -> String;
+}
+
+struct Point {
+    x: i32,
+    y: i32
+}
+
+???
+
+fn main () {
+    let point = Point { x: 5, y: 10 };
+    assert_eq!("Point { x: 5, y: 10 }".to_string(), point.print())
+}
+
+
+
+
+
+
+
+
+
+// "impl Trait for Struct" is the right notation.
 
 ```

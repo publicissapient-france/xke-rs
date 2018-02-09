@@ -150,6 +150,11 @@ fn print_number(number: i32) {
     }
 }
 
+
+
+
+// Consider using sequence matching or value matching.
+
 ````
 <!-- .element: class="playground" -->
 
@@ -157,59 +162,14 @@ fn print_number(number: i32) {
 
 ### Exo 5
 
-<div><a href="https://doc.rust-lang.org/book/second-edition/ch13-01-closures.html" target="_blank">Closures</a></div>
-
-````rust
-// Make me pass the assertion
-fn main() {
-    let mut num_five = 5;
-    
-    {
-        let mut add_some_number = |x: i32| num_five += x; // Force closure to take ownership of num_five
-        add_some_number(5);
-    }
-
-    assert_eq!(5, num_five);
-}
-
-
-
-
-
-
-
-// When declaring a closure without any keyword (mut, move... ) the closure capture environnment by borrow immutably.
-// If you want to modify a captured environnent variable, this variable must be borrowed mutabily and the closure must be mutable (set with mut keyword).
-// If you want to copy (take ownership) the environnement you must use the keyword move.
-````
-<!-- .element: class="playground" -->
-
---
-
-### Exo 6
-
-````rust
-// Make me pass for closure.
-fn main() {
-    let bar = // Create a Bar here.
-    
-    assert_eq!(-10, (bar.my_closure)(5));
-}
-
-struct Bar<F: FnOnce(i32) -> i32> {
-    my_closure: F
-}
-````
-<!-- .element: class="playground" -->
-
---
-
-### Exo 7
-
 ````rust
 // Make me run and pass.
 fn main() {
-    let array: Vec<u32> = (0..10).xxx.collect(); // Replace xxx by something
+    let array: Vec<u32> = (0..10)
+        .xxx() // consider filtering
+        .xxxx() // consider concatenation
+        .collect();
+    
     assert_eq!(vec![0,2,4,6,8,15,16], array)
 }
 
@@ -217,36 +177,3 @@ fn main() {
 <!-- .element: class="playground" -->
 
 --
-
-### Exo 8
-
-````rust
-// Make me run and pass. Consider Read next chapter before doing this.
-fn main() {
-    let mut bitcoin_price = BitcoinPrice {current_price: }; // Change something here
-    
-    assert_eq!(Some(41990.4), bitcoin_price.nth(3));
-
-}
-
-struct BitcoinPrice {
-    current_price: f64,
-}
-
-impl Iterator for BitcoinPrice {
-    type Item = f64;
-    
-    fn next(&mut self) -> Option<f64> {
-        // return something here
-    }
-}
-
-
-
-
-
-
-
-// Hint, start with 4000 and increase by 80%
-````
-<!-- .element: class="playground" -->
