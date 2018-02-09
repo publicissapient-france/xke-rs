@@ -171,6 +171,16 @@ fn main() {
 
     assert_eq!(5, num_five);
 }
+
+
+
+
+
+
+
+// When declaring a closure without any keyword (mut, move... ) the closure capture environnment by borrow immutably.
+// If you want to modify a captured environnent variable, this variable must be borrowed mutabily and the closure must be mutable (set with mut keyword).
+// If you want to copy (take ownership) the environnement you must use the keyword move.
 ````
 <!-- .element: class="playground" -->
 
