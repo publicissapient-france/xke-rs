@@ -29,6 +29,36 @@ fn main () {
 
 --
 
+### Exercise on struct 2
+
+```rust
+// Create a "yeah_printable" function that takes a Printable and return a String like "YEAH, Point { x: 5, y: 10 }".
+trait Printable {
+    fn print(&self) -> String;
+}
+
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl Printable for Point {
+    fn print(&self) -> String {
+        format!("Point {{ x: {}, y: {} }}", self.x, self.y)
+    }
+}
+
+???
+
+fn main () {
+    let point = Point { x: 5, y: 10 };
+    assert_eq!("YEAH, Point { x: 5, y: 10 }".to_string(), yeah_printable(point))
+}
+
+```
+
+--
+
 ### Exercise on closure 1
 
 <div><a href="https://doc.rust-lang.org/book/second-edition/ch13-01-closures.html" target="_blank">Closures</a></div>
