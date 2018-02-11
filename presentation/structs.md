@@ -4,7 +4,7 @@
 
 ### Structs
 
-* Use `````struct````` to encapsulate data.
+* Use `````struct````` to encapsulate data
 
 ````rust
 struct User {
@@ -26,7 +26,7 @@ fn main() {
 
 ### Implems
 
-* Use ```impl``` to define method over the struct.
+* Use ```impl``` to define method over the struct
 
 ````rust
 struct Rectangle {width: u32, height: u32}
