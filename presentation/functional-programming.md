@@ -92,7 +92,7 @@ fn checked_division(dividend: i32, divisor: i32) -> Option<i32> {
 
 ### Exo 2
 
-<div><a href="https://doc.rust-lang.org/book/second-edition/ch06-03-if-let.html" target="_blank">If let</a></div>
+<div class="small"><a href="https://doc.rust-lang.org/book/second-edition/ch06-03-if-let.html" target="_blank">If let</a></div>
 
 ````rust
 // Make me compile by using Some, None.
@@ -111,7 +111,7 @@ fn main() {
 
 ### Exo 3
 
-<div><a href="https://doc.rust-lang.org/book/first-edition/patterns.html#guards" target="_blank">Pattern matching</a></div>
+<div class="small"><a href="https://doc.rust-lang.org/book/first-edition/patterns.html#guards" target="_blank">Pattern matching</a></div>
 
 ````rust
 // Print "Success" when x plus y is equal to 0.
@@ -130,7 +130,7 @@ fn main() {
 
 ### Exo 4
 
-<div><a href="https://doc.rust-lang.org/book/first-edition/patterns.html" target="_blank">Pattern matching</a></div>
+<div class="small"><a href="https://doc.rust-lang.org/book/first-edition/patterns.html" target="_blank">Pattern matching</a></div>
 
 ````rust
 // Make me print only "Success"es
@@ -179,6 +179,8 @@ fn print_number(number: i32) {
 --
 
 ### Exo 5
+
+<div class="small"><a href="https://doc.rust-lang.org/book/second-edition/ch13-02-iterators.html" target="_blank">Iterators</a></div>
 
 ````rust
 // Make me run and pass.

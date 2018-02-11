@@ -1,13 +1,5 @@
 ## Extra
-### Only for the brave
-
---
-
-### ls -la exercise
-* Create an ls alternative call ````xe```` that print the content of the actual directory.
-* Should be tested.
-* Release it with cargo (create a ````release```` version).
-* Add clap-rs dependency from crates.io in order to have ````--version````, ````--help```` and ````-la````.
+#### Only for the brave <!-- .element: class="beige" -->
 
 --
 
@@ -27,6 +19,7 @@ fn main () {
 }
 
 ```
+<!-- .element: class="playground" -->
 
 --
 
@@ -57,6 +50,7 @@ fn main () {
 }
 
 ```
+<!-- .element: class="playground" -->
 
 --
 
@@ -166,3 +160,15 @@ impl Iterator for BitcoinPrice {
 
 ````
 <!-- .element: class="playground" -->
+
+
+--
+
+
+## LS 
+#### Exercise <!-- .element: class="beige" -->
+
+* Create an ```ls``` alternative called ````xe```` that prints the content of the current directory
+* Add clap-rs dependency from crates.io in order to have ````--version````, ````--help```` and ````-la````
+* Should be tested
+* Release it with cargo (create a ````release```` version)

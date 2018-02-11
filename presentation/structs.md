@@ -49,7 +49,7 @@ fn main() {
 
 ### Traits
 
-* Define shared behavior.
+* Define shared behavior
 
 ````rust
 trait Summarizable {
@@ -72,7 +72,7 @@ impl Summarizable for Tweet {
 
 ### Derivation
 
-* Use ````derive```` in order to implement by default trait.
+* Use ````derive```` in order to implement by default trait
 
 ````rust
 #[derive(Debug)]
@@ -91,7 +91,7 @@ fn main() {
 
 ### Example Trait Drop
 
-* Drop a destructor trait.
+* ```Drop``` a destructor trait
 
 ````rust
 struct ImportantResource {
@@ -117,8 +117,10 @@ fn main() {
 
 ### Exo 1
 
+<div class="small"><a href="https://doc.rust-lang.org/book/second-edition/ch05-01-defining-structs.html" target="_blank">Structs</a></div>
+
 ```rust
-// Write a structure Point with to i32 inside x and y.
+// Write a structure Point with two i32 inside x and y.
 struct ???
 fn main () {
     let point = ???
@@ -127,10 +129,14 @@ fn main () {
 }
 
 ```
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 2
+
+<div class="small"><a href="https://doc.rust-lang.org/book/second-edition/ch05-03-method-syntax.html#associated-functions" target="_blank">Associated Functions</a></div>
+
 
 ```rust
 // Use the same struct as previously and implement a 'new' method.
@@ -148,10 +154,14 @@ fn main () {
 }
 
 ```
+<!-- .element: class="playground" -->
 
 --
 
 ### Exo 3
+
+<div class="small"><a href="https://doc.rust-lang.org/book/second-edition/ch05-03-method-syntax.html" target="_blank">Method-syntax</a></div>
+
 
 ```rust
 // Implement a translate_by_two method that multiply by two x and y.
@@ -179,6 +189,7 @@ fn main () {
 }
 
 ```
+<!-- .element: class="playground" -->
 
 --
 
@@ -204,9 +215,31 @@ fn main () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hint:
 // Generic notation of struct is MyStruct<T>
 
 ```
+<!-- .element: class="playground" -->
 
 --
 
@@ -238,6 +271,25 @@ fn main () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Hint:
 // "impl Trait for Struct" is the right notation.
 
 ```
+<!-- .element: class="playground" -->
