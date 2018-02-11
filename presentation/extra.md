@@ -45,7 +45,7 @@ struct Point {
 
 impl Printable for Point {
     fn print(&self) -> String {
-        format!("Point {{ x: {}, y: {} }}", self.x, self.y)
+        
     }
 }
 
