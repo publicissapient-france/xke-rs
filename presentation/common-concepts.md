@@ -1,10 +1,7 @@
 
 ## Common Concepts
 
-* Variables
-* Data Types
-* Functions
-* Control Flow
+Variables / Data Types / Functions / Control Flow <!-- .element: class="beige" -->
 
 --
 
@@ -26,8 +23,9 @@ fn main() {
 <!-- .element: class="fragment" data-fragment-index="2" --> 
 
 Note:
-- Les variables RUST sont **immuable** pas défaut. On les appeles les **Variable bindings**. Pour les faire mutable -> mut.
+- Les variables RUST sont **immuable** pas défaut. On les appeles les **Variable bindings**. 
 - L'immutabilité des variables vous encourage d'écrire votre code code de manière à tirer parti de la sécurité et de la simplicité de la concurrence offertes par Rust.
+- Pour les faire mutable -> mut.
 
 --
 

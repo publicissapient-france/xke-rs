@@ -153,6 +153,24 @@ fn print_number(number: i32) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Consider using sequence matching or value matching.
 
 ````
@@ -167,7 +185,7 @@ fn print_number(number: i32) {
 fn main() {
     let array: Vec<u32> = (0..10)
         .xxx() // consider filtering
-        .xxxx() // consider concatenation
+        .xxxx() // consider chaining another vector
         .collect();
     
     assert_eq!(vec![0,2,4,6,8,15,16], array)
@@ -176,4 +194,3 @@ fn main() {
 ````
 <!-- .element: class="playground" -->
 
---

@@ -17,9 +17,9 @@ dans d'autres langues, le programmeur doit **explicitement** allouer et libérer
 
 ### Ownership rules
 
-1. Each value in Rust has a ```owner```.
-1. There can only be ```one``` owner at a time.
-1. When the owner goes out of scope, the value will be ```dropped```.
+1. Each value in Rust has a ```owner```
+1. There can only be ```one``` owner at a time
+1. When the owner goes out of scope, the value will be ```dropped```
 
 --
 
@@ -38,21 +38,21 @@ dans d'autres langues, le programmeur doit **explicitement** allouer et libérer
 --
 
 ### Data types
-* Let's talk a bit about the Stack and the Heap.
+Let's talk a bit about the Stack and the Heap. <!-- .element: class="beige" -->
 
 Copy Type (stack)
 
 ```rust
 fn main() {
-    let s1 = "hello"; // string literal
-    let s2 = s1;
-    println!("s1: {}, s2: {}", s1, s2); 
-    // ==> s1: Hello, s2: Hello
+    let x = 5; // i32
+    let y = x;
+    println!("x: {}, y: {}", x, y); 
+    // ==> x: 5, y: 5
 }
 ```
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
-Move type (heap)
+Move Type (heap)
 
 ```rust
 fn main() {
@@ -65,7 +65,7 @@ fn main() {
 <!-- .element: class="fragment" data-fragment-index="3" --> 
 
 Note:
-Petit rappel sur la stack et sur la heap: deux manière de gérer la mémoire pour un programme:
+Petit rappel sur la stack et sur la heap - deux manière de gérer la mémoire pour un programme :
 - La stack, très rapide, mais allocation des valeurs en LIFO.
 - La heap, plus lente, mais possibilité d'allocation de très grosse valeurs.
 
@@ -73,19 +73,19 @@ En rust
 
 Lors de l'affectation d'une variable à une autre ou lors de son passage à une fonction (sans référence), si son type de données est un
 
-**Copy Type:**
-- globalement les **types primitives**
-- les donnée sont **copiés**
-- le state de l'ownership est setté comme "copied".
-
 **Move type:**
 - les types non primitives
 - seulement le pointeur et la capacité sont copiés. Mais les données actuelles (référencés par le pointeur) ne sont pas copiés
 - le state de l'ownership est setté comme "moved"
 
+**Copy Type:**
+- globalement les **types primitives**
+- les donnée sont **copiés**
+- le state de l'ownership est setté comme "copied".
+
 --
 
-Representation in memory <br/> after ```s1``` has been invalidated
+Representation in memory <br/> after ```s1``` has been invalidated (move)
 
 ![ownership](images/ownership-1.png) <!-- .element: class="borderless medium" -->
 
@@ -188,12 +188,14 @@ Types of borrowing:
 #### Examples
 
 ```rust
+// 1
 fn main() {
   let mut a = vec![1, 2, 3];
   let b = &mut a;      // &mut borrow of 'a' starts here
   // some code         // ⁝
 }                      // &mut borrow of 'a' ends here
 
+// 2
 fn main() {
   let mut a = vec![1, 2, 3];
   let b = &mut a;      // &mut borrow of 'a' starts here
@@ -202,6 +204,7 @@ fn main() {
                        // shared borrow, so giving error
 }
 
+// 3
 fn main() {
   let mut a = vec![1, 2, 3];
   {

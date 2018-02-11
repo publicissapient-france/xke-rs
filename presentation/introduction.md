@@ -38,11 +38,11 @@ Animators:
 * Low level
 * Abstractions (iterators, closure, types...)
 * Version 1 in may 2015
-* In production in mozilla, Atlassian, npm, clever cloud, dropbox...
+* In production in mozilla, atlassian, npm, clever cloud, dropbox...
 
 --
 
-Why rust instead of go ? (or the differences between Rust and Go).
+**Why Rust instead of Go ?** <br/>(or the differences between Rust and Go)
 
 ||Rust|Go|
 |---|---|---|
@@ -54,9 +54,9 @@ Why rust instead of go ? (or the differences between Rust and Go).
 
 --
 
-* They are not on the same field.</br>
-* Rust isn't better than Go.</br>
-* Go isn't better than rust.
+* They are not on the same field
+* Rust isn't better than Go
+* Go isn't better than Rust
 
 Note:
 But, why docker has choose Go if it wasn't a C replacement ?? 

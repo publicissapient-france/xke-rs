@@ -6,9 +6,9 @@ The Rust package manager <!-- .element: class="beige" -->
 
 ### Cargo
 
-* Bootstrap a project
 * Build code
 * Manage dependencies
+* Bootstrap a project
 
 Note:
 Cargo gère trois choses: 
