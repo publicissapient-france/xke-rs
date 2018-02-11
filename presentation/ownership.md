@@ -38,6 +38,7 @@ dans d'autres langues, le programmeur doit **explicitement** allouer et libérer
 --
 
 ### Data types
+* Let's talk a bit about the Stack and the Heap.
 
 Copy Type (stack)
 
@@ -64,6 +65,12 @@ fn main() {
 <!-- .element: class="fragment" data-fragment-index="3" --> 
 
 Note:
+Petit rappel sur la stack et sur la heap: deux manière de gérer la mémoire pour un programme:
+- La stack, très rapide, mais allocation des valeurs en LIFO.
+- La heap, plus lente, mais possibilité d'allocation de très grosse valeurs.
+
+En rust
+
 Lors de l'affectation d'une variable à une autre ou lors de son passage à une fonction (sans référence), si son type de données est un
 
 **Copy Type:**
@@ -191,7 +198,7 @@ fn main() {
   let mut a = vec![1, 2, 3];
   let b = &mut a;      // &mut borrow of 'a' starts here
   // some code
-  println!("{:?}", a); // trying to access 'a' as a 
+  println!("{:?}", &mut a); // trying to access 'a' as a 
                        // shared borrow, so giving error
 }
 
@@ -202,7 +209,7 @@ fn main() {
     // any other code
   }                    // &mut borrow of 'a' ends here
   
-  println!("{:?}", a); // allow to borrow 'a' as a shared borrow
+  println!("{:?}", &mut a); // allow to borrow 'a' as a shared borrow
 }
 ```
 
